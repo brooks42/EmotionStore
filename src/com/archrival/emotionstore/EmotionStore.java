@@ -270,7 +270,7 @@ class Emotion {
     @Override
     public boolean equals(Object o) {
         if (o instanceof Emotion) {
-            return (((Emotion) o).id == id);
+            return (((Emotion) o).hashCode() == hashCode());
         }
         return false;
     }
@@ -282,10 +282,6 @@ class Emotion {
      */
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.id;
-        hash = 59 * hash + Float.floatToIntBits(this.value);
-        hash = 59 * hash + Objects.hashCode(this.pairs);
-        return hash;
+        return this.id;
     }
 }
